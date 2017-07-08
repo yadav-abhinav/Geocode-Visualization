@@ -1,2 +1,3 @@
 # Geocode-Visualization
-Geocoding visualization using automated Python scripts
+
+Visualisation of Geocode data using Python automated scripts and a map tool provided by www.pythonlearn.com.
