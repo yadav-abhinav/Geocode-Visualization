@@ -1,23 +1,24 @@
+# Various library files included
 import urllib
 import json
 import sqlite3
 
-apiURL="http://maps.googleapis.com/maps/api/geocode/json?"
-conn=sqlite3.connect("geoCode.sqlite")
-cursor=conn.cursor()
+apiURL="http://maps.googleapis.com/maps/api/geocode/json?" # The Google GeoCodig API to fetch data in JSON
+conn=sqlite3.connect("geoCode.sqlite")  # Creates a connection to sqlite database
+cursor=conn.cursor()  # Cursor/handler to sqlite connection
 
+# SQL command to create a new table
 cursor.execute('''
     CREATE TABLE IF NOT EXISTS Locations(address TEXT,geoCode TEXT)''')
 
+# Open a file to fetch locations from a file
 fHandle=open("locations.data")
-count=0
 
 for line in fHandle:
-    if count>100:
-        print 'Retrieved 100 records. Please restart to proceed'
-        break
+
+    # Checks if JSON data for a particular location is present in the database or not
     loc=line.strip()
-    cur.execute('''SELECT geoCode FROM Locations WHERE address=?''',(buffer(loc),))
+    cursor.execute('''SELECT geoCode FROM Locations WHERE address=?''',(buffer(loc),))
 
     try:
         data=cursor.fetchone()[0]
@@ -32,17 +33,22 @@ for line in fHandle:
 
     urlOpen=urllib.urlopen(URL)
     dataJSON=urlOpen.read()
+    #print dataJSON  # For testing
 
-    count=count+1
-
+    # Checks whether JSON data was fetched successfully or not
     try:
         js=json.loads(str(dataJSON))
+        print "Fteched data for:",loc
     except:
         continue
 
-    if js[status] != 'OK':
+    # Checks the STATUS in the received JSON data
+    if 'status' not in js or (js['status'] != 'OK' and js['status'] != 'ZERO_RESULTS') :
         print "FAILED TO RETRIEVE"
-        print dataJSON
         continue
 
-    
+    # Stores the JSON data in the database
+    cursor.execute('''INSERT INTO Locations(address,geoCode) VALUES(?,?)''',(buffer(loc),buffer(dataJSON)))
+
+# Comiit all the changes in the database
+conn.commit()
