@@ -52,3 +52,5 @@ for line in fHandle:
 
 # Comiit all the changes in the database
 conn.commit()
+
+# For fetching JSON data for more location, add them in the 'locations.data' file
