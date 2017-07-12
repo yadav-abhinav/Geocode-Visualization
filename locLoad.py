@@ -38,7 +38,7 @@ for line in fHandle:
     # Checks whether JSON data was fetched successfully or not
     try:
         js=json.loads(str(dataJSON))
-        print "Fteched data for:",loc
+        print "Fetched data for:",loc
     except:
         continue
 
