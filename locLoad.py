@@ -1,4 +1,4 @@
-# Various library files included
+# Various library modules included
 import urllib
 import json
 import sqlite3
