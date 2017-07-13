@@ -15,4 +15,5 @@
 #### 4. Finally locations.js file will be used by locGoogleMap.html file containing the tool by www.pythonlearn.com to visualize the locations on the world map.  
 
 
-###### This project is still evolving. Though a personal project, will love collaboration.    
+###### This project is still evolving. Though a personal project, will love collaboration.
+######### Part of Coursera course.    
