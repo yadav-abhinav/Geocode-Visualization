@@ -1,8 +1,10 @@
+# Various library modules included
 import sqlite3
 import json
 
-conn=sqlite3.connect("geoCode.sqlite")
-cursor=conn.cursor()
+conn=sqlite3.connect("geoCode.sqlite") # Creates a connection to sqlite database
+cursor=conn.cursor() # Cursor/handler to sqlite connection
+
 
 fHandle=open("locations.js","w")
 fHandle.write('myData=[\n')
