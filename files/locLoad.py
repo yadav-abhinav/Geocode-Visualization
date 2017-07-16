@@ -4,7 +4,7 @@ import json
 import sqlite3
 
 apiURL="http://maps.googleapis.com/maps/api/geocode/json?" # The Google GeoCodig API to fetch data in JSON
-conn=sqlite3.connect("geoCode.sqlite")  # Creates a connection to sqlite database
+conn=sqlite3.connect("files/geoCode.sqlite")  # Creates a connection to sqlite database
 cursor=conn.cursor()  # Cursor/handler to sqlite connection
 
 # SQL command to create a new table
@@ -12,7 +12,7 @@ cursor.execute('''
     CREATE TABLE IF NOT EXISTS Locations(address TEXT,geoCode TEXT)''')
 
 # Open a file to fetch locations from a file
-fHandle=open("locations.data")
+fHandle=open("files/locations.data")
 
 for line in fHandle:
 
