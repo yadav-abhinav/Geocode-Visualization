@@ -19,9 +19,13 @@
 
 ## But there is no need to execute each of these python scripts individually. Just execute the run.py in the root directory and get all the work done in a single click.
 
+> All the above mentioned files from Step-1 to Step-2  > are present in 'files' folder.
+
+
+
 #### How to run the run.py script
 
-> Clone or download the repository in your local repo and execute the following command in the terminal.
+> Clone or download the repository in your local repo  > and execute the following command in the terminal.
 
 ```sh
 $ python run.py
