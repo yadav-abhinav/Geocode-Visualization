@@ -26,7 +26,7 @@
 $ cd files
 ````
 
-## But there is no need to execute each of these python scripts individually. Just execute the run.py in the root directory and get all the work done in a single click.
+## But there is no need to execute each of these python scripts individually. Just execute the run.py in the root directory and get all the work done in a single go.
 
 
 #### How to run the run.py script
